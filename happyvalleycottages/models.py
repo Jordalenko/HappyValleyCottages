@@ -5,6 +5,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 # Create your models here.
 
+
 class Guest(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
@@ -30,6 +31,7 @@ class Cottage(models.Model):
     def __str__(self):
         return f"Cottage {self.cottage_id}"
 
+
 class Reservation(models.Model):
     res_id = models.AutoField(primary_key=True)
     guest = models.ForeignKey(Guest, on_delete=models.CASCADE)
@@ -49,6 +51,7 @@ class Reservation(models.Model):
 
     class Meta:
         ordering = ["-created_at"]
+
 
 class Review(models.Model):
     review_id = models.AutoField(primary_key=True)
