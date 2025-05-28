@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+STATUS = ((0, "Draft"), (1, "Published"))
+
 # Create your models here.
 
 class Guest(models.Model):
@@ -36,6 +38,7 @@ class Reservation(models.Model):
     check_out_date = models.DateField()
     discount = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
     is_completed = models.BooleanField(default=False)
+    status = models.IntegerField(choices=STATUS, default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
