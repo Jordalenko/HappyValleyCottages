@@ -47,6 +47,9 @@ class Reservation(models.Model):
     def __str__(self):
         return f"Reservation {self.res_id} by {self.guest}"
 
+    class Meta:
+        ordering = ["-created_at"]
+
 class Review(models.Model):
     review_id = models.AutoField(primary_key=True)
     guest = models.ForeignKey(Guest, on_delete=models.CASCADE)
