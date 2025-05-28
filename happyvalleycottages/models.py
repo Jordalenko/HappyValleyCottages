@@ -41,6 +41,8 @@ class Reservation(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    guest_notes = models.TextField(blank=True, null=True, max_length=300)
+    host_notes = models.TextField(blank=True, null=True, max_length=1000)
 
     def __str__(self):
         return f"Reservation {self.res_id} by {self.guest}"
