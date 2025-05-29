@@ -20,6 +20,7 @@ from django.urls import path, include
 # from happyvalleycottages import views as index_views
 
 urlpatterns = [
-    path("", include("happyvalleycottages.urls"), name="happyvalleycottages-urls"),
     path("admin/", admin.site.urls),
+    path("", include("happyvalleycottages.urls"), name="happyvalleycottages-urls"),
+    path('summernote/', include('django_summernote.urls')),
 ]
