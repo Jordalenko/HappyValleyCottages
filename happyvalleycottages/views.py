@@ -10,6 +10,6 @@ class CottageList(generic.ListView):
     queryset = Cottage.objects.all()
     # Number of cottages to display per page.
     paginate_by = 2  
-    template_name = "cottage_list.html"
+    template_name = "happyvalleycottages/index.html"
     # Allows for loops in template.
     context_object_name = 'cottages'

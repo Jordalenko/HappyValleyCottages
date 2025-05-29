@@ -1,0 +1,21 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+
+{% block title %}Cottages{% endblock %}
+
+{% block content %}
+
+Cottages
+
+{% for cottage in cottages %}
+
+{{ cottage.name }}
+
+{% empty %}
+
+Description of cottage.
+
+{% endfor %}
+
+{% endblock %}
