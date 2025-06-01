@@ -14,9 +14,12 @@ class Guest(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"Logged in as {self.user.username} ({self.user.first_name} {self.user.last_name})"
+        return (
+            f"Logged in as {self.user.username} "
+            f"({self.user.first_name} {self.user.last_name})"
+        )
 
-    
+
 class Cottage(models.Model):
     cottage_id = models.CharField(
         primary_key=True,
@@ -38,7 +41,11 @@ class Reservation(models.Model):
     cottage = models.ForeignKey(Cottage, on_delete=models.CASCADE)
     check_in_date = models.DateField()
     check_out_date = models.DateField()
-    discount = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
+    discount = models.DecimalField(
+        max_digits=5,
+        decimal_places=2,
+        default=0.00
+    )
     is_completed = models.BooleanField(default=False)
     status = models.IntegerField(choices=STATUS, default=0)
     created_at = models.DateTimeField(auto_now_add=True)
